@@ -24,7 +24,7 @@ public class StudentController {
         else if (nameStudent != "") {
             return studentRepository.findBystudentName(nameStudent);
         }
-        return studentRepository.findByidStudent(idStudent);
+        return studentRepository.findAll();
     }
     @PostMapping("/addStudent")
     public  @ResponseBody String addStudent(@RequestBody Student student) {
