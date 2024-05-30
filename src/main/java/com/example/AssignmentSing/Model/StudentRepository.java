@@ -7,5 +7,6 @@ public interface StudentRepository extends CrudRepository<Student, Integer> {
 //    @Query("SELECT * FROM student WHERE idStudent = :idStudent")
     Iterable<Student> findByidStudent(int idStudent);
     Iterable<Student> findBystudentName(String nameStudent);
+    Iterable<Student> findAll();
 
 }

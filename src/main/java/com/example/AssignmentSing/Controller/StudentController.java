@@ -13,13 +13,16 @@ public class StudentController {
     private  StudentRepository studentRepository;
     @GetMapping("/getStudent")
     public @ResponseBody Iterable<Student> getStudent(@RequestParam(value = "idStudent", defaultValue = "0") int idStudent,
-                                                         @RequestParam(value = "nameStudent", defaultValue = "", required = false) String nameStudent) {
+                                                         @RequestParam(value = "nameStudent", defaultValue = "") String nameStudent) {
         if (idStudent != 0) {
+            System.out.println("id!");
             return studentRepository.findByidStudent(idStudent);
         }
-        else if (nameStudent != "") {
+        else if (!nameStudent.equals("")) {
+            System.out.println("name!");
             return studentRepository.findBystudentName(nameStudent);
         }
+        System.out.println("all!");
         return studentRepository.findAll();
     }
     @PostMapping("/addStudent")
