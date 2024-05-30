@@ -15,10 +15,6 @@ public class StudentController {
     public @ResponseBody Iterable<Student> getStudent(@RequestParam(value = "idStudent", defaultValue = "0") int idStudent,
                                                          @RequestParam(value = "nameStudent", defaultValue = "", required = false) String nameStudent) {
         if (idStudent != 0) {
-            if (nameStudent != "") {
-                if (studentRepository.findByidStudent(idStudent) != studentRepository.findByidStudent(idStudent))
-                    return studentRepository.findByidStudent(0);
-            }
             return studentRepository.findByidStudent(idStudent);
         }
         else if (nameStudent != "") {
